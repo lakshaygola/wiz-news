@@ -1,0 +1,114 @@
+/* Imports */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400&family=Poppins:ital,wght@0,100;0,200;0,300;0,500;0,600;1,200&family=Roboto:wght@300;400;500&display=swap');
+
+
+/* Resets */
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+:root{
+    --primary-text-color: #000000;
+    --secondary-text-color: #727272;
+    --primary-accent-color: #2D2D46;
+    --secondary-accent-color: #d71e1f;
+    --inline-padding: 40px;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #ffffff;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* Utils */
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.container  {
+    max-width: 1320px;
+    margin-inline: auto;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.hover-links{
+    color: #ffffff;
+    transition: all 0.2s;
+}
+
+.hover-links:hover{
+    color: var(--secondary-accent-color)
+}
+
+
+/* Navigation bar */
+
+.nav-container {
+    background-color: var(--primary-accent-color);
+}
+
+.main-nav{
+    justify-content: space-between;
+}
+
+.nav-company-logo img{ 
+    width: 126px;
+    overflow: hidden;
+    background-size: cover;
+}
+
+.nav-items{
+    color: #ffffff;
+    gap: 25px;
+    font-size: 1.2rem;
+}
+
+.nav-search-box {
+    gap: 5px;
+}
+
+.nav-search-bar{
+    font-family:'Poppins', sans-serif;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    border: 0.5px solid var(--primary-accent-color);
+    color: var(--primary-text-color);
+    transition: all 0.2s;
+}
+
+.nav-search-bar:hover{
+    color: var(--secondary-text-color);
+}
+
+.nav-search-button{
+    font-family:'Poppins', sans-serif;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    color: #ffffff;
+    background-color: transparent;
+    border: 1px solid var(--secondary-text-color);
+    transition: all 0.2s;
+}
+
+.nav-search-button:hover{
+    color: var(--primary-accent-color);
+    background-color: #ffffff;;
+}
