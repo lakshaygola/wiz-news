@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiz News | Trending daily news app</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+    <nav class="nav-container">
+        <div class="container main-nav flex">
+            <div class="nav-company-logo">
+                <img src="../assets/The wiz news logo.png" alt="The wiz news company logo" class="company-logo-img">
+            </div>
+            <div class="nav-links">
+                <ul class="nav-items flex">
+                    <li class="nav-link hover-links active-link" id="home">Home</li>
+                    <li class="nav-link hover-links" id="about">About</li>
+                    <li class="nav-link hover-links" id="category">Category</li>
+                </ul>
+            </div>
+            <div class="nav-search-box flex">
+                <input type="text" placeholder="e.g Science" class="nav-search-bar" id="nav-search-bar">
+                <button class="nav-search-button">Search</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-container">
+        <div class="container card-container flex" id="card-container">
+
+        </div>
+    </main>
+
+    <template id="news-template">
+        <div class="card">
+            <div class="card-img" id="card-img">
+            </div>
+            <div class="card-title">
+                <h2 id="card-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente molestias harum
+                    placeat libero
+                    eaque a.</h2>
+            </div>
+            <div class="card-source">
+                <h3 id="card-source">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, veniam?
+                </h3>
+            </div>
+            <div class="card-desc">
+                <p id="card-desc">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptate veritatis accusantium fugit
+                    adipisci provident repudiandae eius ut enim libero eum. Consequatur minima aliquid velitsdafa
+                    voluptate.sdaf
+                </p>
+            </div>
+        </div>
+    </template>
+
+    <footer class="footer-container">
+
+    </footer>
+
+    <script src="https://kit.fontawesome.com/f70c6facec.js" crossorigin="anonymous"></script>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
