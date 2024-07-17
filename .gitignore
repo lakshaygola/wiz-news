@@ -3,3 +3,5 @@
 
 temp.txt
 .env
+
+server/node_modules/
