@@ -5,6 +5,7 @@ const cors = require("cors");
 const { PORT, DB_CONNECTION_URL, DB_NAME }  = require("./config");
 const adminRoutes = require("./routes/admin.js");
 const userRoutes = require("./routes/user.js");
+const newsRoutes = require("./routes/news.js")
 
 
 // Instializing an express application
@@ -16,9 +17,10 @@ app.use(cors());
 
 app.use("/admin", adminRoutes);
 app.use("/user", userRoutes);
+app.use("/news", newsRoutes);
 
 // Defining routes
-app.get("//health-checkup", (req, res) => {
+app.get("/health-checkup", (req, res) => {
     res.status(200).json({
         message: "Working fine"
     });
