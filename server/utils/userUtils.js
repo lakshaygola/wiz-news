@@ -8,21 +8,23 @@ function generateAccessToken(username){
 }
 
 
-async function findExistingUser(username, password=false) { 
-    console.log(username, password);
-    if (password) {
-        const user = await User.findOne({username, password});
-    }else {
-        const user = await User.findOne({username});
+function verifyAccessToken(token){
+    const decoded = jwt.verify(token, JWT_SECRET)
+    if (decoded) {
+        return decoded.username;
     }
-    if (user){
-        return user;
-    }
-    return null;
+    return false;
+}
+
+
+async function findExistingUser(username) {
+    const user = await User.findOne({username});
+    return user;
 }
 
 
 module.exports = {
     findExistingUser,
-    generateAccessToken
+    generateAccessToken,
+    verifyAccessToken
 }
