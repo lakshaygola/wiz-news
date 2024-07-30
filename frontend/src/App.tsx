@@ -1,4 +1,5 @@
 import './App.css'
+import AppBar from './components/AppBar';
 import NewsContainer from './components/NewsConatiner';
 
 const news = [{
@@ -60,6 +61,7 @@ const news = [{
 function App() {
   return (
     <>
+      <AppBar />
       <NewsContainer 
         topNews={news}/>
     </>
