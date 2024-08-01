@@ -13,26 +13,29 @@ const router = Router();
 router.post("/signup", adminVerification, async (req, res) => {
     const { username, password, firstName, lastName, 
         confirmPassword, contactNumber, isAdmin } = req.body;
-    const validAdmin = userSchema.safeParse({username, firstName,
-                                                    lastName, password, 
-                                                    confirmPassword, contactNumber});
-    if (!validAdmin.success){
+    const validUser = userSchema.safeParse({username, firstName,
+                                            lastName, password, 
+                                            confirmPassword, contactNumber});
+    if (!validUser.success){
         res.status(401).json({
             message: "Enter valid inputs",
-            error: validAdmin.error.issues[0].message
+            error: validUser.error.issues[0].message
         });
         return;
     }
-    const matchedUser = await findExistingUser(username);
-    if (matchedUser !== null) {
+    const dbUser = await findExistingUser(username);
+    if (dbUser !== null) {
         res.status(401).json({
             message: "User with username exist already"
         });
         return;
     }
-    const user = await User.create({username, password, firstName,
+    const user = await User.create({username, firstName,
                                 lastName, contactNumber, isAdmin});
     if (user){
+        const hashedPassword = await user.createHashedPassword(password);
+        user.password = hashedPassword;
+        await user.save();
         res.status(201).json({
             message: "logged in"
         });
@@ -46,14 +49,14 @@ router.post("/signup", adminVerification, async (req, res) => {
 // Sign In API - User can sign in on a website using username and password
 router.post("/signin", async (req, res) => {
     const { username, password } = req.body;
-    const isValidUser = await findExistingUser(username);
-    if (!isValidUser) {
+    const user = await findExistingUser(username);
+    if (!user) {
         res.status(400).json({
             message: "User not exists, please try with correct username"
         });
         return;
     }
-    if (isValidUser && password === isValidUser.password) {
+    if (user && await user.validatePassword(password)) {
         // JWT return
         const token = generateAccessToken(username);
         res.status(200).json({
@@ -81,8 +84,9 @@ router.post("/change/password", userAuthentication, async (req, res)=> {
         return;
     }
 
-    if (user && user.password === currentPassword) {
-        const updatedUser = await User.updateOne({username: username}, {password: password});
+    if (user && await user.validatePassword(currentPassword)) {
+        const hashedPassword = await user.createHashedPassword(password);
+        const updatedUser = await User.updateOne({username: username}, {password: hashedPassword});
         if (updatedUser) {
             res.status(200).json({
                 message: "Password updated successfully"
@@ -93,6 +97,7 @@ router.post("/change/password", userAuthentication, async (req, res)=> {
     res.status(400).json({
         message: "Please enter valid current password"
     });
+    return;
 });
 
 
