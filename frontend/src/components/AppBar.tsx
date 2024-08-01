@@ -1,4 +1,4 @@
-import WizNewsLogo from "../assets/wiz-news-header-logo.png"
+import WizNewsLogo from "../assets/wiz-news-header-logo.png";
 
 export default function AppBar() {
     return (

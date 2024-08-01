@@ -2,6 +2,7 @@ import './App.css'
 import AppBar from './components/AppBar';
 import NewsContainer from './components/NewsConatiner';
 import { RecoilRoot } from 'recoil';
+import Footer from "./components/Footer";
 
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
     <RecoilRoot>    
         <AppBar />
         <NewsContainer />
+        <Footer />
     </RecoilRoot>
     </>
   );
