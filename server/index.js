@@ -3,21 +3,17 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const { PORT, DB_CONNECTION_URL, DB_NAME }  = require("./config");
-const adminRoutes = require("./routes/admin.js");
-const userRoutes = require("./routes/user.js");
-const newsRoutes = require("./routes/news.js")
+const rootRoutes = require("./routes/index.js");
 
 
 // Instializing an express application
 const app = express();
 
 // Adding body-parser, cors,  as a middleware
+app.use(cors()); 
 app.use(express.json());
-app.use(cors());
+app.use("/api/v1", rootRoutes);
 
-app.use("/admin", adminRoutes);
-app.use("/user", userRoutes);
-app.use("/news", newsRoutes);
 
 // Defining routes
 app.get("/health-checkup", (req, res) => {
