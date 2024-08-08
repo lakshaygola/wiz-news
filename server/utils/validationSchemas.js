@@ -6,13 +6,9 @@ const userSchema = z.object({
     .email("Enter valid email"),
     firstName: z.string()
     .min(1, {message: "Please enter first name"}),
-    lastName: z.string()
-    .min(1, {message: "Please enter first name"}),
+    lastName: z.string(),
     password: z.string().min(4),
     confirmPassword: z.string().min(4),
-    contactNumber: z.string()
-    .min(10, {message: "Please enter valid contact number"})
-    .transform( value => Number(value)),
 }).refine(data => 
     data.password === data.confirmPassword, 
     {

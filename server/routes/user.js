@@ -12,10 +12,10 @@ const router = Router();
 // User signup api - create a new user
 router.post("/signup", adminVerification, async (req, res) => {
     const { username, password, firstName, lastName, 
-        confirmPassword, contactNumber, isAdmin } = req.body;
+        confirmPassword, isAdmin } = req.body;
     const validUser = userSchema.safeParse({username, firstName,
                                             lastName, password, 
-                                            confirmPassword, contactNumber});
+                                            confirmPassword});
     if (!validUser.success){
         res.status(401).json({
             message: "Enter valid inputs",
@@ -31,7 +31,7 @@ router.post("/signup", adminVerification, async (req, res) => {
         return;
     }
     const user = await User.create({username, firstName,
-                                lastName, contactNumber, isAdmin});
+                                lastName, isAdmin});
     if (user){
         const hashedPassword = await user.createHashedPassword(password);
         user.password = hashedPassword;
