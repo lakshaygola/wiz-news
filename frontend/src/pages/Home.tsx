@@ -1,4 +1,4 @@
-import NewsContainer from "./NewsConatiner";
+import NewsContainer from "../components/NewsConatiner";
 
 
 export default function Home(){

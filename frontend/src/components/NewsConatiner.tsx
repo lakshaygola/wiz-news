@@ -7,7 +7,8 @@ interface News {
     title: string;
     description: string;
     publishedAt: Date;
-};
+    author: string;
+}
 
 
 export default function NewsContainer (){

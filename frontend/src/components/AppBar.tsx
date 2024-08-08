@@ -2,7 +2,7 @@ import WizNewsLogo from "../assets/wiz-news-header-logo.png";
 
 export default function AppBar() {
     return (
-        <div className="app-bar h-14 bg-red-500 mb-3 flex justify-between items-center">
+        <div className="app-bar h-14 bg-red-500 flex justify-between items-center">
             <div className="left-app-bar flex items-center">
                 <img src={WizNewsLogo} alt="Wiz News Logo" className="logo w-14 h-14 ml-8 mr-8 object-cover"/>
                 <div className="news-bar hidden lg:flex">
