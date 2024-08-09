@@ -1,6 +1,4 @@
-import { useRecoilValue } from "recoil";
 import NewsCard from "./NewsCard";
-import { trendingNewsAtom } from "../store/atom/trendingNewsAtom";
 
 interface News {
     imageUrl: string;
@@ -10,14 +8,16 @@ interface News {
     author: string;
 }
 
+interface Index {
+    index: number
+}
 
-export default function NewsContainer (){
-    const topNews = useRecoilValue(trendingNewsAtom);
 
-    console.log(topNews);
+export default function NewsContainer ({fetchedNews}){
     return (
-        <div className="news-card-container flex justify-between flex-wrap w-3/4 my-10< mx-auto">
-            {topNews.map((news: News) => <NewsCard 
+        <div className="news-card-container flex justify-between flex-wrap w-3/4 my-12 mx-auto">
+            {fetchedNews.map((news: News, index: Index) => <NewsCard
+                                key={index}
                                 imageUrl={news.imageUrl}
                                 title={news.title}
                                 description={news.description}

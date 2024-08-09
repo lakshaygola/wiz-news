@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useRecoilValue } from "recoil";
 import WizNewsLogo from "../assets/wiz-news-header-logo.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { signinAtom } from "../store/atom/siginAtom";
 
 export default function AppBar() {
 
-    const [signin, setSignin] = useState(false);
+    const signin = useRecoilValue(signinAtom);
+    const navigate = useNavigate();
 
     return (
         <div className="app-bar h-14 bg-red-500 flex justify-between items-center">
@@ -20,7 +22,8 @@ export default function AppBar() {
                                 <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                             </svg>
                         </li>
-                        <li className="hover:text-white transition ease-in delay-150 p-1">
+                        <li className="hover:text-white transition ease-in delay-150 p-1"
+                        onClick={() => navigate('/trending')}>
                             Treading
                         </li>
                         <li className="hover:text-white transition ease-in delay-150 p-1">Business & Money</li>
@@ -45,7 +48,13 @@ export default function AppBar() {
                 <ul className="hidden lg:flex items-center gap-4 text-white">
                     <li className="hover:text-black transition ease-in-out delay-150">Subscribe</li>
                     <li className="hover:text-black transition ease-in-out delay-150">
-                        { signin ? <Link to="/profile">Profile</Link> : <Link to="/signin">Sign in</Link> }
+                        { signin ? 
+                        <Link to="/profile">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                            </svg>
+                        </Link> : 
+                        <Link to="/signin">Sign in</Link> }
                     </li>
                 </ul>
             </div>

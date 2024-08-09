@@ -6,6 +6,8 @@ import FormButton from "../components/FormButton";
 import FormHeader from "../components/FormHeader";
 import FormInput from "../components/FormInput";
 import FormWarning from "../components/FormWarning";
+import { useSetRecoilState } from "recoil";
+import { signinAtom } from "../store/atom/siginAtom";
 
 
 export default function Signin() {
@@ -13,7 +15,7 @@ export default function Signin() {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
+    const setSignin = useSetRecoilState(signinAtom);
 
     async function handleSignin () {
         const response = await axios({
@@ -29,6 +31,7 @@ export default function Signin() {
             if (jwtToken) {
                 localStorage.setItem("access-token", jwtToken);
                 navigate("/");
+                setSignin((s) => !s);
             }
         }
     }
