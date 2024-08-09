@@ -1,4 +1,5 @@
 import WizNewsLogo from "../assets/wiz-news-header-logo.png";
+import { Link } from "react-router-dom";
 
 export default function AppBar() {
     return (
@@ -7,7 +8,9 @@ export default function AppBar() {
                 <img src={WizNewsLogo} alt="Wiz News Logo" className="logo w-14 h-14 ml-8 mr-8 object-cover"/>
                 <div className="news-bar hidden lg:flex">
                     <ul className="news-bar-list flex gap-6">
-                        <li className="hover:text-white transition ease-in delay-150 p-1">Home</li>
+                        <li className="hover:text-white transition ease-in delay-150 p-1">
+                            <Link to="/">Home</Link>
+                        </li>
                         <li className="hover:text-white transition ease-in delay-150 flex items-center p-1">India 
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-4">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
@@ -37,7 +40,9 @@ export default function AppBar() {
                 </div>
                 <ul className="hidden lg:flex items-center gap-4 text-white">
                     <li className="hover:text-black transition ease-in-out delay-150">Subscribe</li>
-                    <li className="hover:text-black transition ease-in-out delay-150">Sign up</li>
+                    <li className="hover:text-black transition ease-in-out delay-150">
+                        { signin ? <Link to="/profile">Profile</Link> : <Link to="/signin">Sign in</Link> }
+                    </li>
                 </ul>
             </div>
         </div>

@@ -16,12 +16,12 @@ export default function NewsContainer (){
 
     console.log(topNews);
     return (
-        <div className="news-card-container flex justify-between flex-wrap w-3/4 m-auto">
+        <div className="news-card-container flex justify-between flex-wrap w-3/4 my-10< mx-auto">
             {topNews.map((news: News) => <NewsCard 
-                                imageUrl={news.imageUrl} 
+                                imageUrl={news.imageUrl}
                                 title={news.title}
                                 description={news.description}
-                                publishedAt={news.publishedAt} 
+                                publishedAt={news.publishedAt}
                                 author={news.author}
                                 />
             )}
