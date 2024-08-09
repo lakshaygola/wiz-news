@@ -1,7 +1,11 @@
+import { useState } from "react";
 import WizNewsLogo from "../assets/wiz-news-header-logo.png";
 import { Link } from "react-router-dom";
 
 export default function AppBar() {
+
+    const [signin, setSignin] = useState(false);
+
     return (
         <div className="app-bar h-14 bg-red-500 flex justify-between items-center">
             <div className="left-app-bar flex items-center">

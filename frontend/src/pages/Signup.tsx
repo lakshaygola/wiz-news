@@ -34,7 +34,7 @@ export default function Signup() {
 
     return (
         <div className="flex justify-center bg-slate-50">    
-            <div className="w-1/3 p-10 my-20 rounded-lg bg-red-500 flex flex-col justify-center items-center">
+            <div className="w-5/6 my-10 py-10 rounded-lg bg-red-500 flex flex-col justify-center items-center md:w-96 md:my-20 lg:w-90">
                 <img src={WizNewsLogo} alt="Wiz News Logo" 
                     className="logo w-24 h-21 object-fill"/>
                 <FormHeader 
