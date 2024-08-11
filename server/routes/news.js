@@ -1,7 +1,5 @@
 const { Router } = require("express");
 const router = Router();
-const { TOP_HEADLINE_NEWS_ENDPOINT, NEWS_API_KEY } = require("../config");
-const axios = require("axios");
 const { newsApiObj } = require("../utils/newsUtils");
 
 
@@ -9,21 +7,29 @@ const newsApi = newsApiObj();
 
 
 // Top headlines API - fetch all top headlines of india
-router.get("/top-headlines/all", async (req, res) => {
+router.get("/top-news", async (req, res) => {
+    const newsCountry =  req.query.country || "us";
+    const newsCategory = req.query.category || "";
+    const searchedNews = req.query.q || "";
+    const newsSource = req.query.sources || "";
+
     try {
         const newsData = await newsApi.v2.topHeadlines({
-            language: 'en',
-            country: 'us'
+            country: newsCountry,
+            category: newsCategory,
+            q: searchedNews,
+            sources: newsSource
         });
         res.status(200).json({
-            message: "Fetch category news",
+            message: "Fetched top news",
             data: newsData
         });
         return;
     } catch (e) {
         console.log(e);
-        res.status(400).json({
-            message: "Not able to fetch the data"
+        res.status(401).json({
+            message: "Error while fetching data",
+            error: e
         });
         return;
     }
@@ -31,16 +37,46 @@ router.get("/top-headlines/all", async (req, res) => {
 
 
 // Category news API - fetch all the latest news for a given category
-router.get("/category/top-news", async (req, res) => {
-    const newsCategory = req.query.category
+router.get("/all-news", async (req, res) => {
+    const newsLanguage = req.query.language || "en";
+    const newsDomains = req.query.domains || "techcrunch.com";
+    const searchedNews = req.query.q || "";
+
     try {
-        const newsData = await newsApi.v2.sources({
-            category: newsCategory,
-            language: "en",
-            country: "us"
+        const newsData = await newsApi.v2.everything({
+            language: newsLanguage,
+            domains: newsDomains,
+            q: searchedNews
         });
         res.status(200).json({
-            message: "Fetch category news",
+            message: "Fetched category news",
+            data: newsData
+        });
+        return;
+    }
+    catch (e) {
+        console.log(e);
+        res.status(401).json({
+            message: "Error while fetching a data",
+            error: e
+        });
+        return;
+    }
+});
+
+
+// Searched news API - Used to fetch the data based on serach query
+router.get("/searched/news", async (req, res) => {
+    const newsLanguage = req.query.language || "en";
+    const query = req.query.q || "";
+
+    try {
+        const newsData = await newsApi.v2.everything({
+            language: newsLanguage,
+            q: query,
+        });
+        res.status(200).json({
+            message: "Fetched searched news",
             data: newsData
         });
         return;
@@ -52,7 +88,7 @@ router.get("/category/top-news", async (req, res) => {
         });
         return;
     }
-})
+});
 
 
 // news apis health checkup
