@@ -15,7 +15,7 @@ interface Index {
 
 export default function NewsContainer ({fetchedNews}){
     return (
-        <div className="news-card-container flex justify-between flex-wrap w-3/4 my-12 mx-auto">
+        <div className="news-card-container flex justify-between flex-wrap w-3/4 min-h-screen my-12 mx-auto">
             {fetchedNews.map((news: News, index: Index) => <NewsCard
                                 key={index}
                                 imageUrl={news.imageUrl}

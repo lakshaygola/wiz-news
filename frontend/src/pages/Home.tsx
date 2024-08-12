@@ -1,17 +1,13 @@
-import NewsContainer from "../components/NewsConatiner";
 import { useRecoilValue } from "recoil";
-import { categoryNewsAtomFamily } from "../store/atom/categoryNewsAtom";
-import { Suspense } from "react";
+import { newsAtomFamily } from "../store/atom/newsAtom";
+import NewsContainer from "../components/NewsConatiner";
 
 
 export default function Home(){
-    const fetchedNews = useRecoilValue(categoryNewsAtomFamily("http://localhost:3000/api/v1/news/top-headlines/all"));
-    console.log(fetchedNews);
+    const fetchedNews = useRecoilValue(newsAtomFamily(`${import.meta.env.VITE_BACKEND_URL}news/top-news`));
 
     return (
-        <Suspense fallback={"loading.."}>
-            <NewsContainer 
-            fetchedNews={fetchedNews}/>
-        </Suspense>
+        <NewsContainer 
+        fetchedNews={fetchedNews}/>
     );
 }

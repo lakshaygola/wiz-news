@@ -2,12 +2,11 @@ import axios from "axios";
 import { atomFamily, selectorFamily } from "recoil";
 
 
-export const categoryNewsAtomFamily = atomFamily({
-    key: "categoryNewsAtomFamily",
+export const newsAtomFamily = atomFamily({
+    key: "newsAtomFamily",
     default: selectorFamily({
-        key: "categoryNewsSelectorFamily",
-        get: url => async ({ get }) => {
-
+        key: "newsSelectorFamily",
+        get: url => async () => {
             const response =  await axios({
                 url: url,
                 method: "get"

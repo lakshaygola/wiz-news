@@ -15,25 +15,39 @@ export default function AppBar() {
                 <div className="news-bar hidden lg:flex">
                     <ul className="news-bar-list flex gap-6">
                         <li className="hover:text-white transition ease-in delay-150 p-1">
-                            <Link to="/">Home</Link>
+                            <Link to="/">
+                            General
+                            </Link>
                         </li>
-                        <li className="hover:text-white transition ease-in delay-150 flex items-center p-1">India 
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-4">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-                            </svg>
+                        <li className="hover:text-white transition ease-in delay-150 p-1">
+                            <Link to="/business">
+                            Business & Money
+                            </Link>
                         </li>
-                        <li className="hover:text-white transition ease-in delay-150 p-1"
-                        onClick={() => navigate('/trending')}>
-                            Treading
+                        <li className="hover:text-white transition ease-in delay-150 p-1">
+                            <Link to={"/sports"}>
+                            Sports
+                            </Link>
                         </li>
-                        <li className="hover:text-white transition ease-in delay-150 p-1">Business & Money</li>
-                        <li className="hover:text-white transition ease-in delay-150 p-1">Sports</li>
-                        <li className="hover:text-white transition ease-in delay-150 p-1">Politics</li>
-                        <li className="hover:text-white transition ease-in delay-150 p-1">Science</li>
+                        <li className="hover:text-white transition ease-in delay-150 p-1">
+                            <Link to={"/politics"}>
+                            Politics
+                            </Link>
+                        </li>
+                        <li className="hover:text-white transition ease-in delay-150 p-1">
+                            <Link to={"/science"}>
+                            Science
+                            </Link>
+                        </li>
                     </ul>
                 </div>
             </div>
             <div className="right-app-bar flex gap-6 mr-6 h-14 items-center">
+                <div className="hover:text-white transition ease-in delay-150 flex items-center p-1">India 
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-4">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                            </svg>
+                </div>
                 <input placeholder="Search" className="hidden xl:inline rounded-md p-2.5 border-none h-8 w-64"/>
                 <div className="visible flex xl:hidden">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
