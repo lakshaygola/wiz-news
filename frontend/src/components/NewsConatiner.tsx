@@ -25,6 +25,7 @@ export default function NewsContainer ({fetchedNews}){
                                 author={news.author}
                                 />
             )}
+            </div>
         </div>
     );
 }

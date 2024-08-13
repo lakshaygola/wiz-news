@@ -18,24 +18,24 @@ import { Suspense } from "react";
 
 function App() {
   return (
-    <Suspense fallback={"loading.. "}>
-      <RecoilRoot>
+    <RecoilRoot>
         <BrowserRouter>   
           <AppBar />
-          <Routes>
-              <Route path="/" element={<Home/>} />
-              <Route path="/business" element={<Business />} />
-              <Route path="/signup" element={<Signup/>} />
-              <Route path="/signin" element={<Signin/>} />
-              <Route path="/profile" element={<Profile/>} />
-              <Route path="/politics" element={<Politics/>} />
-              <Route path="/sports" element={<Sports/>} />
-              <Route path="/science" element={<Science/>} />
-          </Routes>
+            <Suspense fallback={"loading.. "}>
+              <Routes>
+                  <Route path="/" element={<Home/>} />
+                  <Route path="/business" element={<Business />} />
+                  <Route path="/signup" element={<Signup/>} />
+                  <Route path="/signin" element={<Signin/>} />
+                  <Route path="/profile" element={<Profile/>} />
+                  <Route path="/politics" element={<Politics/>} />
+                  <Route path="/sports" element={<Sports/>} />
+                  <Route path="/science" element={<Science/>} />
+              </Routes>
+            </Suspense>
           <Footer />
         </BrowserRouter>
-      </RecoilRoot>
-    </Suspense>
+    </RecoilRoot>
   );
 }
 
