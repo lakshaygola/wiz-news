@@ -1,6 +1,6 @@
 import { newsAtomFamily } from "../store/atom/newsAtom";
 import { useRecoilValue } from "recoil";
-import NewsContainer from "../components/NewsConatiner";
+import { NewsContainer } from "../components/NewsConatiner";
 
 
 export default function Business (){

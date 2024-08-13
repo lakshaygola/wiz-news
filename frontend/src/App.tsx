@@ -13,6 +13,7 @@ const Politics = React.lazy(() => import("./pages/Politics"));
 const Science = React.lazy(() => import("./pages/Science"));
 const Sports = React.lazy(() => import("./pages/Sports"));
 import { Suspense } from "react";
+import { Loader } from "./components/Loader";
 
 
 
@@ -21,7 +22,7 @@ function App() {
     <RecoilRoot>
         <BrowserRouter>   
           <AppBar />
-            <Suspense fallback={"loading.. "}>
+            <Suspense fallback={<Loader />}>
               <Routes>
                   <Route path="/" element={<Home/>} />
                   <Route path="/business" element={<Business />} />

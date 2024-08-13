@@ -1,6 +1,7 @@
 import { newsAtomFamily } from "../store/atom/newsAtom";
 import { useRecoilValue } from "recoil";
-import NewsContainer from "../components/NewsConatiner";
+import { NewsContainer } from "../components/NewsConatiner";
+import { NoNews } from "../components/NoNews";
 
 
 export default function Politics() {
@@ -12,6 +13,8 @@ export default function Politics() {
         <NewsContainer 
         fetchedNews={categoryNews}/>);
     }else {
-        return (<div> No news as of now </div>)
+        return (
+            <NoNews />
+        );
     }    
 }
