@@ -6,6 +6,7 @@ interface News {
     description: string;
     publishedAt: Date;
     author: string;
+    url: string;
 }
 
 

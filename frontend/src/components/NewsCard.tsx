@@ -1,6 +1,15 @@
 import { Link } from "react-router-dom";
 
-export default function NewsCard(props){
+interface Props {
+    imageUrl: string;
+    title: string;
+    description: string;
+    author: string;
+    publishedAt: string;
+    url: string;  
+}
+
+export default function NewsCard(props: Props){
 
     return (
         <div className="news-card bg-slate-100 flex flex-col w-80 py-3 flex-grow-1 rounded mb-6 transition ease-in-out hover:scale-105">
