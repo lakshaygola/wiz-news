@@ -3,6 +3,7 @@ import WizNewsLogo from "../assets/wiz-news-header-logo.png";
 import { Link } from "react-router-dom";
 import { signinAtom } from "../store/atom/siginAtom";
 import CountryOptions from  "./CountryOptions";
+import SearchBar from "./SearchBar";
 
 export default function AppBar() {
 
@@ -44,17 +45,7 @@ export default function AppBar() {
             </div>
             <div className="right-app-bar flex gap-6 mr-6 h-14 items-center">
                 <CountryOptions />
-                {/* <div className="hover:text-white transition ease-in delay-150 flex items-center p-1">India 
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-4">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-                            </svg>
-                </div> */}
-                <input placeholder="Search" className="hidden xl:inline rounded-md p-2.5 border-none h-8 w-64"/>
-                <div className="visible flex xl:hidden">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-                    </svg>
-                </div>
+                <SearchBar />
                 <div className="visible flex lg:hidden">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />

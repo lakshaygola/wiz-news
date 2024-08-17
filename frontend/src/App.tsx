@@ -17,6 +17,7 @@ const UnitedStates = React.lazy(() => import("./pages/UnitedStates"));
 const UnitedKindom = React.lazy(() => import("./pages/UnitedKindom"));
 const Australia = React.lazy(() => import("./pages/Australia"));
 const Russia = React.lazy(() => import("./pages/Russia"));
+const SearchedNews = React.lazy(() => import("./pages/SearchedNews"));
 import { Suspense } from "react";
 import { Loader } from "./components/Loader";
 
@@ -42,6 +43,7 @@ function App() {
                   <Route path="/uk/top-news" element= {<UnitedKindom />} />
                   <Route path="/au/top-news" element= {<Australia />} />
                   <Route path="/rus/top-news" element= {<Russia />} />
+                  <Route path="/searched/headlines" element={<SearchedNews />}></Route>
               </Routes>
             </Suspense>
           <Footer />
