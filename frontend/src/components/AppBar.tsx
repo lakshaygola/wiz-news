@@ -1,12 +1,12 @@
 import { useRecoilValue } from "recoil";
 import WizNewsLogo from "../assets/wiz-news-header-logo.png";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { signinAtom } from "../store/atom/siginAtom";
+import CountryOptions from  "./CountryOptions";
 
 export default function AppBar() {
 
     const signin = useRecoilValue(signinAtom);
-    const navigate = useNavigate();
 
     return (
         <div className="app-bar h-14 bg-red-500 flex justify-between items-center">
@@ -43,11 +43,12 @@ export default function AppBar() {
                 </div>
             </div>
             <div className="right-app-bar flex gap-6 mr-6 h-14 items-center">
-                <div className="hover:text-white transition ease-in delay-150 flex items-center p-1">India 
+                <CountryOptions />
+                {/* <div className="hover:text-white transition ease-in delay-150 flex items-center p-1">India 
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-4">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                             </svg>
-                </div>
+                </div> */}
                 <input placeholder="Search" className="hidden xl:inline rounded-md p-2.5 border-none h-8 w-64"/>
                 <div className="visible flex xl:hidden">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
