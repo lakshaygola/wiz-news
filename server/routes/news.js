@@ -91,6 +91,29 @@ router.get("/searched/news", async (req, res) => {
 });
 
 
+router.get("/country/headlines", async (req, res) => {
+    const newsCountry = req.query.country || "all";
+
+    try {
+        const countryNews = await newsApi.v2.topHeadlines({
+            country: newsCountry
+        });
+        res.status(200).json({
+            message: `Fetched all news for ${newsCountry}`,
+            data: countryNews
+        });
+        return;
+    }
+    catch (e) {
+        console.log(e);
+        res.status(400).json({
+            message: `Not able to fetch news for ${newsCountry}`
+        });
+        return;
+    }
+})
+
+
 // news apis health checkup
 router.get("/checkup", (req, res) => {
     res.status(200).json({

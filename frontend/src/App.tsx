@@ -12,6 +12,11 @@ const Profile = React.lazy(() => import("./pages/Profile"));
 const Politics = React.lazy(() => import("./pages/Politics"));
 const Science = React.lazy(() => import("./pages/Science"));
 const Sports = React.lazy(() => import("./pages/Sports"));
+const India = React.lazy(() => import("./pages/India"));
+const UnitedStates = React.lazy(() => import("./pages/UnitedStates"));
+const UnitedKindom = React.lazy(() => import("./pages/UnitedKindom"));
+const Australia = React.lazy(() => import("./pages/Australia"));
+const Russia = React.lazy(() => import("./pages/Russia"));
 import { Suspense } from "react";
 import { Loader } from "./components/Loader";
 
@@ -32,6 +37,11 @@ function App() {
                   <Route path="/politics" element={<Politics/>} />
                   <Route path="/sports" element={<Sports/>} />
                   <Route path="/science" element={<Science/>} />
+                  <Route path="/india/top-news" element= {<India />} />
+                  <Route path="/us/top-news" element= {<UnitedStates />} />
+                  <Route path="/uk/top-news" element= {<UnitedKindom />} />
+                  <Route path="/au/top-news" element= {<Australia />} />
+                  <Route path="/rus/top-news" element= {<Russia />} />
               </Routes>
             </Suspense>
           <Footer />

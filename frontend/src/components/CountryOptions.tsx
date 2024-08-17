@@ -1,5 +1,6 @@
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 
 export default function CountryOptions() {
@@ -26,44 +27,52 @@ export default function CountryOptions() {
                 className="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in">
                     <div className="py-1">
                     <MenuItem>
-                        <a
-                        href="#"
+                        <Link
+                        to='/'
+                        className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900"
+                        onClick={changeCountry}>
+                        World
+                        </Link>
+                    </MenuItem>
+                    <MenuItem>
+                        <Link
+                        to='/india/top-news'
                         className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900"
                         onClick={changeCountry}>
                         In
-                        </a>
+                        </Link>
                     </MenuItem>
                     <MenuItem>
-                        <a
-                        href="#"
+                        <Link
+                        to='/us/top-news'
                         className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900"
                         onClick={changeCountry}>
                         US
-                        </a>
+                        </Link>
                     </MenuItem>
                     <MenuItem>
-                        <a
-                        href="#"
+                        <Link
+                        to="/uk/top-news"
                         className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900"
                         onClick={changeCountry}>
                         UK
-                        </a>
+                        </Link>
                     </MenuItem>
                     <MenuItem>
-                        <a
-                        href="#"
+                        <Link
+                        to="au/top-news"
                         className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900"
                         onClick={changeCountry}>
                         AU
-                        </a>
+                        </Link>
                     </MenuItem>
                     <MenuItem>
-                        <a
-                        href="#"
+                        <Link
+                        to="rus/top-news"
                         className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900"
                         onClick={changeCountry}>
                         RUS
-                        </a>
+                        </Link>
                     </MenuItem>
                 </div>
             </MenuItems>
