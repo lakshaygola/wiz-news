@@ -4,7 +4,7 @@ interface News {
     imageUrl: string;
     title: string;
     description: string;
-    publishedAt: Date;
+    publishedAt: string;
     author: string;
     url: string;
 }

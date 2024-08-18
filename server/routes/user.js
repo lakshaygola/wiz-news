@@ -72,6 +72,23 @@ router.post("/signin", async (req, res) => {
 });
 
 
+// Is sign in API - Check if user is already signed in or not
+router.get("/is-signin", userAuthentication, async(req, res) => {
+    const username = req.headers.username;
+    const user = await findExistingUser(username);
+
+    if (user) {
+        return res.status(200).json({
+            message: "Valid token"
+        });
+    }
+    return res.status(403).json({
+        message: "Invaild token"
+    })
+})
+
+
+// Change password API - Allow user to change the password of their account
 router.post("/change/password", userAuthentication, async (req, res)=> {
     const username = req.headers.username;
     const { currentPassword, password, confirmPassword } = req.body;

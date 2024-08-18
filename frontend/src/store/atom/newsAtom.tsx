@@ -6,7 +6,7 @@ export const newsAtomFamily = atomFamily({
     key: "newsAtomFamily",
     default: selectorFamily({
         key: "newsSelectorFamily",
-        get: url => async () => {
+        get: (url: string) => async () => {
             const response =  await axios({
                 url: url,
                 method: "get"

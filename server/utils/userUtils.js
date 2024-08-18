@@ -9,11 +9,16 @@ function generateAccessToken(username){
 
 
 function verifyAccessToken(token){
-    const decoded = jwt.verify(token, JWT_SECRET)
-    if (decoded) {
-        return decoded.username;
+    try{
+        const decoded = jwt.verify(token, JWT_SECRET)
+        if (decoded) {
+            return decoded.username;
+        }
+        return false;
+    }catch(e) {
+        console.log(e)
+        return false;
     }
-    return false;
 }
 
 

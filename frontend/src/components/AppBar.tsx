@@ -1,14 +1,13 @@
 import { useRecoilValue } from "recoil";
 import WizNewsLogo from "../assets/wiz-news-header-logo.png";
 import { Link } from "react-router-dom";
-import { signinAtom } from "../store/atom/siginAtom";
-import CountryOptions from  "./CountryOptions";
-import SearchBar from "./SearchBar";
+import { signinAtom } from "../store/atom/siginAtom.tsx";
+import CountryOptions from  "./CountryOptions.tsx";
+import SearchBar from "./SearchBar.tsx";
 
 export default function AppBar() {
-
     const signin = useRecoilValue(signinAtom);
-
+    console.log(signin);
     return (
         <div className="app-bar h-14 bg-red-500 flex justify-between items-center">
             <div className="left-app-bar flex items-center">
