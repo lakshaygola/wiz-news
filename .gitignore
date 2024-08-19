@@ -5,6 +5,9 @@ temp.txt
 .env
 
 server/node_modules/
+server/config.js
 frontend/node_modules
+
+backend-key.pem
 
 .DS_Store
